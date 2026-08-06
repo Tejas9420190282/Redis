@@ -5,27 +5,27 @@ const redis = require("./redis");
 
 const Sorted_Set = async () => {
   try {
-    /* 
+/* 
     await redis.zadd("students", 99, "Tejas",);     // ===============> added one bvalue in Sorted_Set
 
     console.log("Tejas value is added in Sorted_Set".bgGreen);   */
 
-    /*  
+/*  
     await redis.zadd("students", 95, "Shubhangi", 55, "AK", 99, "Abhi", 85, "Jay");     // ===============> added one bvalue in Sorted_Set
 
     console.log(`Multiple values Insertde in Sortes_Set`.bgGreen);  */
 
-    /* 
+/* 
     const range_Of_Sorted_Set = await redis.zrange("students", 0, -1)       // ===============> Get members in ascending order.
 
     console.log(`range_Of_Sorted_Set : ${range_Of_Sorted_Set}`.bgGreen);           // ===============> range_Of_Sorted_Set : AK,Jay,Shubhangi,Abhi,Tejas  */
 
-    /*  
+/*  
     const high_TO_Low_Values_In_Sorted_Set = await redis.zrevrange("students", 0, -1);  // ===============> give Highest to lowest values in Sorted_Set.
     
     console.log(`high_TO_Low_Values_In_Sorted_Set : ${high_TO_Low_Values_In_Sorted_Set}`);      // ===============> [ 'Tejas', 'Abhi', 'Shubhangi', 'Jay', 'AK' ]   */
 
-    /*  
+/*  
     const high_TO_Low_Values_And_scorecard_From_Sorted_Set = await redis.zrevrange("students", 0, -1, "WITHSCORES"); // ===============> give Highest to lowest values with scorecard from Sorted_Set.
 
     console.log(high_TO_Low_Values_And_scorecard_From_Sorted_Set); {/* // ===============> [ 
@@ -36,40 +36,40 @@ const Sorted_Set = async () => {
   'AK',        '55'
 ] *.} */
 
-    /* 
+/* 
   const score_Of_Given_Member_From_Sorter_Set = await redis.zscore("students", "Jay");      // ======> Get Score of One Member
 
   console.log(`score_Of_Given_Member_From_Sorter_Set : ${score_Of_Given_Member_From_Sorter_Set}`);      // ==========> score_Of_Given_Member_From_Sorter_Set : 85   */
 
-    /*  
-    const is_Lowest_Rank_From_Sorted_Set = await redis.zrank("students", "Jay"); // ======> Shows Lowest Rank or not
+/*  
+    const is_Lowest_Rank_From_Sorted_Set = await redis.zrank("students", "Jay"); // ======> Returns ascending rank.
 
     console.log(
       `is_Lowest_Rank_From_Sorted_Set : ${is_Lowest_Rank_From_Sorted_Set}`,
     ); // ==========> is_Lowest_Rank_From_Sorted_Set : 1    */
 
-    /*  
+/*  
     const is_Hightest_Rank_From_Sorted_Set = await redis.zrevrank("students", "Jay"); // ======> Shows Hightest Rank or not
 
     console.log(
       `is_Hightest_Rank_From_Sorted_Set : ${is_Hightest_Rank_From_Sorted_Set}`,
     ); // ==========> is_Hightest_Rank_From_Sorted_Set : 3   */
 
-    /*  
+/*  
     const total_Count_Of_Members_From_Sorted_Set = await redis.zcard("students"); // ======> Count Members
 
     console.log(
       `total_Count_Of_Members_From_Sorted_Set : ${total_Count_Of_Members_From_Sorted_Set}`,
     ); // ==========> total_Count_Of_Members_From_Sorted_Set : 5   */
 
-    /*  
+/*  
     const total_Count_Of_Members_Betn_Score_From_Sorted_Set = await redis.zcount("students", 80, 100); // ======> Count Members Between Scores
 
     console.log(
       `total_Count_Of_Members_Betn_Score_From_Sorted_Set : ${total_Count_Of_Members_Betn_Score_From_Sorted_Set}`,
     ); // ==========> total_Count_Of_Members_Betn_Score_From_Sorted_Set : 4     */
 
-    /*  
+/*  
     const show_Members_Betn_Score_From_Sorted_Set = await redis.zrangebyscore("students", 80, 100); // ======> Show Members Between Scores
 
     console.log(
@@ -95,6 +95,7 @@ const Sorted_Set = async () => {
 
 Sorted_Set();
 
+
 /*  
     ⭐ Most Important Commands (Interview)
 
@@ -119,6 +120,8 @@ These are the commands you should master for 1–2 years MERN interviews:
 */
 
 /* 
+    * Difference
+
     | Feature          | Set  |  Sorted Set  |
     | ---------------- | ---- | ------------ |
     | Duplicate values | ❌   | ❌          |
@@ -130,7 +133,6 @@ These are the commands you should master for 1–2 years MERN interviews:
 */
 
 /*  
-
     1. What is a Redis Sorted Set?
 
 Answer:
@@ -155,5 +157,22 @@ Use a Sorted Set when you need:
  - Priority queues
  - Trending content
  - Top-N queries
+
+*/
+
+
+
+/* 
+
+    * Complete Redis Data Types Recap
+
+| Data Type             | Best Use Case        | Example                                       |
+| --------------------- | -------------------- | --------------------------------------------- |
+| **String**            | Single value         | OTP, JWT, Cache                               |
+| **List**              | Ordered collection   | Chat messages, Notifications, Queues          |
+| **Set**               | Unique values        | Likes, Tags, Online users                     |
+| **Hash**              | Objects with fields  | User profile, Product, Order                  |
+| **Sorted Set (ZSET)** | Ranked unique values | Leaderboards, Priority queues, Trending posts |
+
 
 */
