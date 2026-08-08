@@ -116,3 +116,60 @@ Redis transaction ka matlab ye nahi hai ki agar ek command fail hui to Redis aut
 
 
 Important: DISCARD ka matlab already executed commands ko rollback karna nahi hai. Ye sirf queued commands ko EXEC se pehle cancel karta hai.
+
+
+
+
+
+
+
+Interview Questions ⭐
+Q1. What is Redis Transaction?
+
+Answer:
+
+Redis Transaction allows multiple Redis commands to be grouped together using MULTI and executed using EXEC. Redis executes the queued commands sequentially without interleaving commands from other clients during execution.
+
+Q2. What is MULTI?
+
+MULTI starts a transaction and puts subsequent commands into a queue instead of executing them immediately.
+
+Q3. What is EXEC?
+
+EXEC executes all commands that were queued after MULTI.
+
+Q4. What is DISCARD?
+
+DISCARD cancels the queued transaction commands before EXEC is called.
+
+Q5. What is WATCH?
+
+WATCH monitors one or more keys. If a watched key is modified by another client before EXEC, the transaction is aborted.
+
+Q6. Does Redis Transaction support rollback?
+
+Important answer:
+
+No, Redis MULTI/EXEC does not provide traditional rollback like SQL databases. If a runtime command error occurs during execution, previously successful commands are not automatically undone.
+
+
+
+
+
+The 5 Commands You Must Remember
+
+MULTI   → Transaction start
+
+EXEC    → Execute commands
+
+DISCARD  → Cancel queued commands
+
+WATCH   → Watch key for changes
+
+UNWATCH → Stop watching
+
+
+
+One-line interview answer:
+
+"Redis transactions use MULTI and EXEC to group commands and execute them sequentially. DISCARD cancels queued commands, while WATCH provides optimistic locking by aborting the transaction if a watched key changes before execution. Redis transactions don't provide traditional rollback."
